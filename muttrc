@@ -1,0 +1,114 @@
+set editor=vim
+set sendmail="/usr/bin/msmtp"
+set use_from=yes
+set realname="Ye Xiaolong"
+set from=xiaolong.ye@intel.com
+set envelope_from=yes
+
+set mbox_type=Maildir
+set folder=$HOME/.mail
+set mbox=+inbox
+set record=+sent
+set spoolfile=+inbox
+set header_cache=+.hcache
+set postponed=+postponed
+
+mailboxes = +inbox
+mailboxes = +lkp-patches
+mailboxes = +sent
+mailboxes = +git-maillist
+mailboxes = +openvswitch-dev
+mailboxes = +lkp01-list
+mailboxes = +todo
+mailboxes = +JIRA
+mailboxes = +manager
+mailboxes = +MSR
+mailboxes = +kernel-test-robot
+mailboxes = +kbuild-test-robot
+
+set alias_file=~/.mutt/aliases
+set check_new=yes
+set timeout=600
+set sleep_time = 0 # be fast
+set smart_wrap
+set allow_ansi
+# set mime_forward
+
+set include
+set indent_str=">"
+#set sort=reverse-date
+#set sort_aux=threads
+set sort=threads
+set sort_aux=reverse-date
+
+set pager_stop
+set pager_context = 1
+set fast_reply
+
+set charset=utf8
+
+set edit_headers
+
+unset collapse_unread
+unset mark_old
+
+# color
+color signature red black
+
+# -- index --
+#color index         brightred         default        "~N"                        # new messages
+
+# -- body --
+color body brightred default "^-.*"
+color body brightgreen default "^[+].*"
+color body brightwhite default "^diff --git.*"
+color body brightwhite default "^index [a-f0-9].*"
+color body brightyellow default "^@@.*"
+
+# bind keys
+bind pager <up> previous-line #scroll inside the message rather than the index
+bind pager <down> next-line
+
+# Sidebar Patch --------------------------------------
+#set sidebar_delim   = '  │'
+#set sidebar_visible = yes
+#set sidebar_width   = 24
+#color sidebar_new color221 color233
+
+# Index View Options ---------------------------------
+set date_format = "%m/%d"
+#set index_format = "[%Z]  %D  %-20.20F  %s"
+set sort = threads                         # like gmail
+set sort_aux = reverse-last-date-received  # like gmail
+set uncollapse_jump                        # don't collapse on an unread message
+set sort_re                                # thread based on regex
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
+# Pager View Options ---------------------------------
+set pager_index_lines = 10 # number of index lines to show
+set pager_context = 3      # number of context lines to show
+set pager_stop             # don't go to next message automatically
+set menu_scroll            # scroll in menus
+set tilde                  # show tildes like in vim
+unset markers              # no ugly plus signs
+
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+alternative_order text/plain text/enriched text/html
+
+subscribe git@vger.kernel.org 
+# reply to all
+#set followup_to=yes
+
+# for viewing html e-mails inside mutt.  See also .mailcap
+auto_view text/html
+alternative_order text/enriched text/plain text text/html
+
+source ~/.mutt/aliases
+source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
+
+macro index <Esc><Space> "<pipe-message>~/bin/viewhtmlmail\n" "View HTML in browser"
+macro pager <Esc><Space> "<pipe-message>~/bin/viewhtmlmail\n" "View HTML in browser"
+# Macro
+macro index A \
+    "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
+    "mark all new as read"
