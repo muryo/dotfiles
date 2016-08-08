@@ -1,0 +1,54 @@
+nmap <space> :
+let mapleader=";"
+
+" wrap the line if it exceeds the screen width
+set wrap
+
+set nolist
+set shiftwidth=8
+set tabstop=8
+set softtabstop=8
+"set cindent
+"set smartindent
+set noautochdir
+set noexpandtab
+
+set tags=tags
+
+"colorscheme molokai
+colorscheme 256-jungle
+let g:indent_guides_enable_on_vim_startup = 0
+
+"set nobackup
+set noswapfile
+
+" For NERDTree
+let NERDTreeChDirMode = 2
+let NERDTreeWinSize = 30
+nmap <F5>  :NERDTreeToggle<CR>
+
+"Bundle 'vim-instant-markdown'
+nmap <leader>p :CtrlP<CR>
+
+autocmd FileType ruby setlocal noexpandtab shiftwidth=8 softtabstop=8
+" not clear
+autocmd! bufwritepost .vimrc.local source ~/.vimrc.local
+
+" For youcompleteme
+inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+autocmd BufEnter * if &filetype == "" | setlocal ft=text | endif
+let g:ycm_filetype_blacklist = {'*': 0}
+"let g:ycm_confirm_extra_conf=0 "关闭加载.ycm_extra_conf.py提示
+"let g:ycm_seed_identifiers_with_syntax=1
+"let g:ycm_complete_in_comments = 1
+"在字符串输入中也能补全
+"let g:ycm_complete_in_strings = 1
+"注释和字符串中的文字也会被收入补全
+"let g:ycm_collect_identifiers_from_comments_and_strings = 0"
+"nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" for mutt
+autocmd BufRead,BufNewFile /tmp/mutt-* source $HOME/.vimrc
+
+" automatically remove trailing whitespace
+autocmd FileType c,cpp,python,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
