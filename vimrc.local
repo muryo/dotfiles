@@ -65,3 +65,9 @@ autocmd BufRead,BufNewFile /tmp/mutt-* source $HOME/.vimrc
 
 " automatically remove trailing whitespace
 autocmd FileType c,cpp,python,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+Bundle 'vim-scripts/taglist.vim'
+" Taglist setting
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+nmap <silent> <leader>tl :TlistToggle<cr>
