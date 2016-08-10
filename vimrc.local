@@ -1,6 +1,19 @@
 nmap <space> :
 let mapleader=";"
 
+set pastetoggle=<F2>
+
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+
 " wrap the line if it exceeds the screen width
 set wrap
 
