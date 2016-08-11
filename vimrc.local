@@ -70,3 +70,7 @@ autocmd FileType c,cpp,python,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//
 let Tlist_Show_One_File=1
 let Tlist_Exit_OnlyWindow=1
 nmap <silent> <leader>tl :TlistToggle<cr>
+
+" winManager setting
+let g:winManagerWindowLayout='FileExplorer|Tlist'
+nmap wm :WMToggle<cr>
