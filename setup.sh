@@ -26,3 +26,6 @@ ln -sf $DOTFILE_PATH/muttrc ~/.mutt/muttrc
 # create symbols for tmux
 ln -sf $DOTFILE_PATH/tmux.conf ~/.tmux.conf
 echo "\nDone"
+
+# for zsh
+ln -sf $DOTFILE_PATH/zshrc ~/.zshrc
