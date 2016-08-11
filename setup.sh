@@ -23,4 +23,6 @@ ln -sf $DOTFILE_PATH/vimrc.local ~/.vimrc.local
 # create symbols for mutt
 ln -sf $DOTFILE_PATH/muttrc ~/.mutt/muttrc
 
+# create symbols for tmux
+ln -sf $DOTFILE_PATH/tmux.conf ~/.tmux.conf
 echo "\nDone"
