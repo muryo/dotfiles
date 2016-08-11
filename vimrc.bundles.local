@@ -1,1 +1,2 @@
 Bundle 'vim-scripts/winmanager'
+Bundle 'vim-scripts/taglist.vim'
