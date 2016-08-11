@@ -74,3 +74,7 @@ nmap <silent> <leader>tl :TlistToggle<cr>
 " winManager setting
 let g:winManagerWindowLayout='FileExplorer|Tlist'
 nmap wm :WMToggle<cr>
+
+if exists('$TMUX')
+  set term=screen-256color
+endif
