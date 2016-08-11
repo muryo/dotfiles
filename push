@@ -1,0 +1,4 @@
+#!/bin/sh
+
+#TODO: auto push without typing username and password
+git push origin master
