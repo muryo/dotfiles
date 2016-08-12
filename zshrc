@@ -97,3 +97,4 @@ source ~/.oh-my-zsh/plugins/incr/incr*.zsh
 
 source ~/.oh-my-zsh/plugins/autojump/autojump.plugin.zsh
 
+tmux attach
