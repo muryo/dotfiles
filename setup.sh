@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 echo "!! CAUTIONS: It will recreate all the symbols !!"
 echo "Are you sure? [y/n]"
