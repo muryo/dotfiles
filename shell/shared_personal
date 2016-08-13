@@ -1,0 +1,13 @@
+#!/bin/sh
+
+#. /lkp/env.sh                                                                                                                   
+yexl_vim()
+{
+        cp ~/.vimrc-yexl ~/.vimrc
+}
+
+spf13_vim()
+{
+       # ln -sf ~/.spf13-vim-3/.vimrc ~/.vimrc
+        cp ~/.vimrc-spf13 ~/.vimrc
+}

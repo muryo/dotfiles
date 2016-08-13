@@ -27,8 +27,9 @@ ln -sf $DOTFILE_PATH/muttrc ~/.mutt/muttrc
 ln -sf $DOTFILE_PATH/tmux.conf ~/.tmux.conf
 echo "\nDone"
 
-# for zsh
-ln -sf $DOTFILE_PATH/zshrc ~/.zshrc
-
 # for common shell
 ln -sf $DOTFILE_PATH/dircolors ~/.dircolors
+
+# for zsh
+ln -sf $DOTFILE_PATH/zshrc ~/.zshrc
+source ~/.zshrc

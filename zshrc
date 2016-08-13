@@ -83,7 +83,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-SHELL_DIR=$HOME/.shell
+DOTFILE_PATH=/home/yexl/dotfiles
+
+SHELL_DIR=$DOTFILE_PATH/shell
 
 . $SHELL_DIR/shared_env
 . $SHELL_DIR/shared_func

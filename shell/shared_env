@@ -1,0 +1,42 @@
+#!/bin/sh
+
+export HISTSIZE=51200
+
+export LESS=-MRiqscj5
+export PAGER=less
+#export GREP_OPTIONS="--binary-files=without-match"
+
+[ -x /bin/lesspipe ] && eval "$(lesspipe)"
+[ -x /usr/bin/lesspipe.sh ] && eval "$(lesspipe.sh)"
+
+[ -z "$USER" ] && export USER="$(id -nu)"
+
+[ -z "$HOME" -o "$HOME" = "/" ] && export HOME="/home/$USER"
+
+export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/lib/git-core:/usr/sbin:/usr/bin:/sbin:/bin:/usr/X11R6/bin:"$PATH":/usr/lib/xscreensaver
+
+. $HOME/bin/checkpath &>/dev/null
+
+
+# to run xeyes as root after su
+if [[ -n $SSH_CONNECTION || -n $DISPLAY ]]; then
+	export XAUTHORITY=~/.Xauthority
+fi
+
+# if [[ -n $SSH_CONNECTION || $TERM = 'linux' ]]; then
+	# export LANG=C
+# fi
+
+# if [[ -n $DISPLAY ]]; then
+	# export LANG=zh_CN.GBK
+# fi
+
+# if [[ $LANG =~ 'UTF-8' ]]; then
+	# export LESSCHARSET=UTF-8
+	# export LESSCHARSET=latin1
+# fi
+export http_proxy=http://child-prc.intel.com:913/
+export ftp_proxy=ftp://child-prc.intel.com:913/
+#export socks_proxy=socks://proxy-socks.fm.intel.com:1080/
+export https_proxy=https://child-prc.intel.com:913/
+export TERM=xterm-256color
