@@ -29,3 +29,6 @@ echo "\nDone"
 
 # for zsh
 ln -sf $DOTFILE_PATH/zshrc ~/.zshrc
+
+# for common shell
+ln -sf $DOTFILE_PATH/dircolors ~/.dircolors
