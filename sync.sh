@@ -12,6 +12,7 @@ if [[ $remote =~ inn ]] || [[ $remote =~ bee ]]; then
 		scp -r ~/.vim yexl@$remote:~
 		scp -r ~/.oh-my-zsh yexl@$remote:~
 	fi
+	scp -r ~/.vimrc yexl@$remote:~
 	scp -r $DOTFILE_PATH yexl@$remote:$DOTFILE_PATH
 
 	echo "done"
