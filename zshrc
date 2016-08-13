@@ -104,4 +104,4 @@ setxkbmap -layout us -option ctrl:swapcaps
 
 # used to restore default layout
 # setxkbmap -option
-tmux attach
+#tmux attach
