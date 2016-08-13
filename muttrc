@@ -115,3 +115,6 @@ macro pager <Esc><Space> "<pipe-message>~/bin/viewhtmlmail\n" "View HTML in brow
 macro index A \
     "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
     "mark all new as read"
+
+macro index,pager a "<pipe-entry>(cd ~/workspace/kernel/linux; umask 022; git am --ignore-whitespace)"
+macro index,pager p "<pipe-entry>(cd ~/workspace/kernel/linux; umask 022; git apply)"
