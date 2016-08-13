@@ -32,4 +32,6 @@ ln -sf $DOTFILE_PATH/dircolors ~/.dircolors
 
 # for zsh
 ln -sf $DOTFILE_PATH/zshrc ~/.zshrc
+chsh -s $(which zsh)
+zsh
 source ~/.zshrc

@@ -1,0 +1,28 @@
+umask 002
+
+export EDITOR=emacsclient
+export VIEWER=emview
+export EMAIL=xiaolong.ye@intel.com
+export USER=yexl
+export REPORTER=Xiaolong
+export LKP_DRYRUN=1
+export LKP_VERBOSE=1
+
+if [[ $USER = 'root' ]]; then
+	LKP_USER=lkp
+elif [[ -e /lkp/$USER/src ]]; then
+	LKP_USER=$USER
+else
+	LKP_USER=lkp
+fi
+
+export LKP_USER
+export LKP_HOME=/lkp/$LKP_USER
+export LKP_SRC=$LKP_HOME/src
+
+export PATH=$LKP_SRC/tools:$LKP_SRC/sbin:$PATH:$LKP_SRC/bin:$LKP_SRC/apc
+
+export C_ROOT=/c/kernel-tests
+
+source $C_ROOT/lib/kbuild-dirs.sh
+source $C_ROOT/lib/kboot-dirs.sh

@@ -83,6 +83,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+HOST=$(hostname)
 DOTFILE_PATH=/home/yexl/dotfiles
 
 SHELL_DIR=$DOTFILE_PATH/shell
@@ -94,6 +95,7 @@ SHELL_DIR=$DOTFILE_PATH/shell
 . $SHELL_DIR/shared_rc
 #. $SHELL_DIR/bash_prompt
 [[ -f $SHELL_DIR/shared_personal ]] && . $SHELL_DIR/shared_personal
+[[ $HOST = inn ]] || [[ $HOST = bee ]] && . $SHELL_DIR/lkp_env
 
 source ~/.oh-my-zsh/plugins/incr/incr*.zsh
 
