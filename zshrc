@@ -102,7 +102,7 @@ source ~/.oh-my-zsh/plugins/incr/incr*.zsh
 source ~/.oh-my-zsh/plugins/autojump/autojump.plugin.zsh
 
 # remap ctrl and caps lock key
-setxkbmap -layout us -option ctrl:swapcaps
+#setxkbmap -layout us -option ctrl:swapcaps
 
 # used to restore default layout
 # setxkbmap -option
