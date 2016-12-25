@@ -1,4 +1,4 @@
-set editor=vim
+set editor="vim +':set textwidth=0' +':set wrapmargin=0' +':set wrap'"
 set sendmail="/usr/bin/msmtp"
 set use_from=yes
 set realname="Ye Xiaolong"
@@ -20,12 +20,16 @@ mailboxes = +sent
 mailboxes = +git-maillist
 #mailboxes = +openvswitch-dev
 mailboxes = +lkp01-list
+mailboxes = +kbuild-all-list
 mailboxes = +todo
 mailboxes = +JIRA
 mailboxes = +manager
 mailboxes = +MSR
-mailboxes = +kernel-test-robot
+mailboxes = +lkp-reports
+mailboxes = +bisect-reports
 mailboxes = +kbuild-test-robot
+mailboxes = +linux-audio-intel
+mailboxes = +linux-scalability
 
 set alias_file=~/.mutt/aliases
 set check_new=yes
