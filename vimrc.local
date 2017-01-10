@@ -45,6 +45,8 @@ nmap <F5>  :NERDTreeToggle<CR>
 nmap <leader>p :CtrlP<CR>
 
 autocmd FileType ruby setlocal noexpandtab shiftwidth=8 softtabstop=8
+autocmd BufNewFile *.rb exec setline(1, "#!/usr/bin/env ruby")
+autocmd BufNewFile *.sh exec setline(1, "#!/bin/sh")
 " not clear
 autocmd! bufwritepost .vimrc.local source ~/.vimrc.local
 
