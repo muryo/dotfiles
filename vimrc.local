@@ -16,6 +16,7 @@ endfunction
 
 " wrap the line if it exceeds the screen width
 set wrap
+set colorcolumn=80
 
 set nolist
 set shiftwidth=8
