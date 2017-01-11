@@ -43,6 +43,7 @@ alias gau="git add -u"
 alias gcs="git commit -s"
 alias gca="git commit --amend"
 alias glp="git log -p"
+alias glfg="git ls-files| grep -Ei"
 
 alias sx='screen -x'
 
@@ -172,7 +173,7 @@ trash()
 
 cleantrash()
 {
-	read -p "clear sure?[n]" confirm
+	read  confirm
 	[ $confirm == 'y' ] || [ $confirm == 'Y' ] && /bin/rm -rf ~/.trash/*
 }
 
