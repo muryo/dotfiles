@@ -55,6 +55,7 @@ plugins=(git autojump incr extract)
 
 # export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
+export PATH=$HOME/go/bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
 
