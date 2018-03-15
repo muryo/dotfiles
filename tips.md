@@ -3,6 +3,10 @@
 lla: used to show all files details including dotfiles
 ll -S: used to get detailed file list sorted by size (in human readable numbers)
 
+use double quoted version after capturing multiple lines of content to a bash
+variable via $() or `` to get the original strings where all newlines, tabs,
+spaces are preserved, otherwise, it'll all become a single line.
+
 # For vim
 
 How to wrap existing text at 80 characters in vim:
