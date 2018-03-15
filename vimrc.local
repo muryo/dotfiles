@@ -70,6 +70,9 @@ autocmd BufRead,BufNewFile /tmp/mutt-* source $HOME/.vimrc
 " automatically remove trailing whitespace
 autocmd FileType c,cpp,python,ruby,java autocmd BufWritePre <buffer> :%s/\s\+$//e
 
+" Set scripts to be executable from the shell
+autocmd BufWritePost * if getline(1) =~ "^#!/bin/" | silent !chmod +x <afile>
+
 " auto enable syntax highlight if file is started with #!/bin/sh or #!/bin/bash by setting filetype to sh
 autocmd BufEnter * if getline(1) =~ "^#!/bin/sh" || getline(1) =~ "^#!/bin/bash" | setlocal ft=sh | endif
 
