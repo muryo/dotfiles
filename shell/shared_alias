@@ -2,6 +2,7 @@
 
 # some system has unusable vi
 alias v=vim
+alias V=vim
 alias iv=vim
 alias vi=vim
 alias vs="vim patches/series"
@@ -27,6 +28,8 @@ alias q=quilt
 alias ff=firefox
 
 alias u="uname -a"
+alias e="emacs -nw"
+alias emacs="emacs -nw"
 
 alias gu="git remote update" # && git checkout origin/master"
 alias gs="git show --format=fuller --stat --patch"
