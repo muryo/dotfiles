@@ -1,5 +1,13 @@
 #!/bin/zsh
 
+# need to make sure whether system has install on-my-zsh and spf13-vim or not
+
+# install oh-my-zsh, need to make sure curl is available
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# install spf13-vim, the best distribution I've ever seen
+sh <(curl https://j.mp/spf13-vim3 -L)
+
 echo "!! CAUTIONS: It will recreate all the symbols !!"
 echo "Are you sure? [y/n]"
 
