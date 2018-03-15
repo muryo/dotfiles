@@ -30,6 +30,11 @@ mailboxes = +bisect-reports
 mailboxes = +kbuild-test-robot
 mailboxes = +linux-audio-intel
 mailboxes = +linux-scalability
+mailboxes = +lkp-robot
+mailboxes = +syzkaller
+mailboxes = +dpdk
+mailboxes = +build-dpdk
+mailboxes = +jenkins
 
 set alias_file=~/.mutt/aliases
 set check_new=yes
@@ -73,6 +78,9 @@ color body brightyellow default "^@@.*"
 # bind keys
 bind pager <up> previous-line #scroll inside the message rather than the index
 bind pager <down> next-line
+bind pager Q exit 
+bind index a    "create-alias"         # create an alias from a message sender
+bind pager a    "create-alias"            # create an alias from a message sender
 
 # Sidebar Patch --------------------------------------
 #set sidebar_delim   = '  │'
@@ -120,5 +128,9 @@ macro index A \
     "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
     "mark all new as read"
 
-macro index,pager a "<pipe-entry>(cd ~/workspace/kernel/linux; umask 022; git am --ignore-whitespace)"
-macro index,pager p "<pipe-entry>(cd ~/workspace/kernel/linux; umask 022; git apply)"
+macro pager m "<pipe-entry>(cd ~/workspace/kernel/linux; umask 022; git am --ignore-whitespace)"
+macro pager p "<pipe-entry>(cd ~/workspace/kernel/linux; umask 022; git apply)"
+#macro pager l "<pipe-entry>(cd ~/workspace/lkp-ml; umask 022; git am --ignore-whitespace)"
+macro pager l "<pipe-entry>(cd ~/workspace/lkp-tests; umask 022; git am --ignore-whitespace)"
+macro pager c "<pipe-entry>(cd ~/workspace/lkp-core; umask 022; git am --ignore-whitespace)"
+macro pager b "<pipe-entry>(scp ~/Mail/.config.gz yexl@bee:~/linux/; ssh bee /home/yexl/workspace/scripts/repro-lkml-build.sh)"
