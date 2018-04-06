@@ -38,6 +38,9 @@ echo "\nDone"
 # for common shell
 ln -sf $DOTFILE_PATH/dircolors ~/.dircolors
 
+# for helm-ag which used as smart search in spacemacs via SPC + /
+sudo apt-get install silversearcher-ag
+
 # for zsh
 ln -sf $DOTFILE_PATH/zshrc ~/.zshrc
 chsh -s $(which zsh)
