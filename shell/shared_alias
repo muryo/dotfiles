@@ -28,7 +28,7 @@ alias q=quilt
 alias ff=firefox
 
 alias u="uname -a"
-alias e="emacs -nw"
+alias e="emacs"
 alias emacs="emacs -nw"
 
 alias gu="git remote update" # && git checkout origin/master"
