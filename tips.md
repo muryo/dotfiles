@@ -16,3 +16,8 @@ Then select the lines of text you want to re-format by *v*, then just type *gq*
 # For git
 
 git rm --cache: it could remove specified file from commit and without deleting it on disk
+
+# For tmux
+
+Ctrl-a + space would change the pane layout, keep typing it would change
+the layout back and forth.
