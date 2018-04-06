@@ -98,6 +98,8 @@ SHELL_DIR=$DOTFILE_PATH/shell
 [[ -f $SHELL_DIR/shared_personal ]] && . $SHELL_DIR/shared_personal
 [[ $HOST = inn ]] || [[ $HOST = bee ]] && . $SHELL_DIR/lkp_env
 
+. $SHELL_DIR/customize_env
+
 source ~/.oh-my-zsh/plugins/incr/incr*.zsh
 
 source ~/.oh-my-zsh/plugins/autojump/autojump.plugin.zsh
