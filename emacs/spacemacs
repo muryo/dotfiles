@@ -80,6 +80,7 @@ values."
   (setq package-archives '(("gnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
                            ("marmalade" . "https://marmalade-repo.org/packages/")
                            ("melpa" . "http://melpa.org/packages/")))
+  (setq evil-toggle-key "C-`")
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
