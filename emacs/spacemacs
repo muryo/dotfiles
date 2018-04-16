@@ -328,6 +328,7 @@ you should place your code here."
   (add-hook 'prog-mode-hook #'(lambda ()
                                 (dtrt-indent-mode)
                                 (dtrt-indent-adapt)))
+  (define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
