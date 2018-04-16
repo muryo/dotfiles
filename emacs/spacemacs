@@ -331,6 +331,7 @@ you should place your code here."
                                 (dtrt-indent-mode)
                                 (dtrt-indent-adapt)))
   (define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
+  (setq python-shell-interpreter "python3")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
