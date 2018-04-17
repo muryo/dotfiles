@@ -41,6 +41,9 @@ ln -sf $DOTFILE_PATH/dircolors ~/.dircolors
 # for helm-ag which used as smart search in spacemacs via SPC + /
 sudo apt-get install silversearcher-ag
 
+# default spell checker used by spacemacs
+sudo apt-get install aspell
+
 # for zsh
 ln -sf $DOTFILE_PATH/zshrc ~/.zshrc
 chsh -s $(which zsh)
