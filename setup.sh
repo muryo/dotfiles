@@ -28,6 +28,9 @@ ln -sf $DOTFILE_PATH/vimrc.before.local ~/.vimrc.before.local
 ln -sf $DOTFILE_PATH/vimrc.bundles.local ~/.vimrc.bundles.local
 ln -sf $DOTFILE_PATH/vimrc.local ~/.vimrc.local
 
+# create symlink for spacemacs
+ln -sf $DOTFILE_PATH/spacemacs.d ~/.spacemacs.d
+
 # create symbols for mutt
 ln -sf $DOTFILE_PATH/muttrc ~/.mutt/muttrc
 
