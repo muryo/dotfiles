@@ -326,7 +326,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   (setq package-check-signature nil)
-  (setq org-agenda-files (list "~/org-files"))
   )
 
 (defun dotspacemacs/user-config ()
@@ -355,6 +354,10 @@ you should place your code here."
       (powerline-buffer-id)))
   (diff-hl-flydiff-mode '(:global t))
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+  (setq org-directory "~/notes/")
+  (setq org-files (append (file-expand-wildcards (concat org-directory "*/*.org"))
+                          (file-expand-wildcards (concat org-directory "*/*.org"))))
+  (setq org-agenda-files (append (file-expand-wildcards (concat org-directory "dates/*.org"))))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
