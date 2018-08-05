@@ -14,6 +14,7 @@ set header_cache=+.hcache
 set postponed=+postponed
 
 mailboxes = +inbox
+mailboxes = +audio
 mailboxes = +lkp-patches
 mailboxes = +lkp-regression
 mailboxes = +sent
@@ -131,6 +132,7 @@ macro index A \
 macro pager m "<pipe-entry>(cd ~/workspace/kernel/linux; umask 022; git am --ignore-whitespace)"
 macro pager p "<pipe-entry>(cd ~/workspace/kernel/linux; umask 022; git apply)"
 #macro pager l "<pipe-entry>(cd ~/workspace/lkp-ml; umask 022; git am --ignore-whitespace)"
-macro pager l "<pipe-entry>(cd ~/workspace/lkp-tests; umask 022; git am --ignore-whitespace)"
-macro pager c "<pipe-entry>(cd ~/workspace/lkp-core; umask 022; git am --ignore-whitespace)"
+macro pager l "<pipe-entry>(cd ~/workspace/lkp-projects/lkp-tests; umask 022; git am --ignore-whitespace)"
+macro pager c "<pipe-entry>(cd ~/workspace/lkp-projects/lkp-core; umask 022; git am --ignore-whitespace)"
+macro pager 0 "<pipe-entry>(cd ~/workspace/lkp-projects/0day-kernel-tests; umask 022; git am --ignore-whitespace)"
 macro pager b "<pipe-entry>(scp ~/Mail/.config.gz yexl@bee:~/linux/; ssh bee /home/yexl/workspace/scripts/repro-lkml-build.sh)"
