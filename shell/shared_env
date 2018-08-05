@@ -42,3 +42,4 @@ export https_proxy=https://child-prc.intel.com:913/
 export TERM=xterm-256color
 export GOROOT=$HOME/go
 export GOPATH=$HOME/gopath
+export GTAGSLABEL=ctags
