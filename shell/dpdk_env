@@ -1,0 +1,2 @@
+export DPDK_GETMAINTAINER_PATH=/home/yexl/workspace/linux/scripts/get_maintainer.pl
+export DPDK_CHECKPATCH_PATH=/home/yexl/workspace/linux/scripts/checkpatch.pl

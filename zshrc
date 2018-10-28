@@ -97,6 +97,7 @@ SHELL_DIR=$DOTFILE_PATH/shell
 #. $SHELL_DIR/bash_prompt
 [[ -f $SHELL_DIR/shared_personal ]] && . $SHELL_DIR/shared_personal
 [[ $HOST = inn ]] || [[ $HOST = bee ]] && . $SHELL_DIR/lkp_env
+. $SHELL_DIR/dpdk_env
 
 #source ~/.oh-my-zsh/plugins/incr/incr*.zsh
 
