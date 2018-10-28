@@ -31,6 +31,8 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     (imenu-list :variables
+                 imenu-list-position 'left)
      html
      python
      go
