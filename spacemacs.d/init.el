@@ -54,7 +54,9 @@ values."
      emacs-lisp
      ;;(markdown :variables markdown-live-preview-engine 'vmd)
      markdown
-     git
+     (git :variables
+	  git-commit-fill-column 75
+	  git-commit-summary-max-length 60)
      (version-control :variables
                       version-control-diff-tool 'diff-hl
                       version-control-diff-side 'left
