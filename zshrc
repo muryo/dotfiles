@@ -103,6 +103,10 @@ SHELL_DIR=$DOTFILE_PATH/shell
 
 source ~/.oh-my-zsh/plugins/autojump/autojump.plugin.zsh
 
+if [ -n "$TMUX" ]; then
+	export TERM='screen-256color'
+fi
+
 # remap ctrl and caps lock key
 #setxkbmap -layout us -option ctrl:swapcaps
 
