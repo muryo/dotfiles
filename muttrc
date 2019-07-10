@@ -137,3 +137,13 @@ macro pager c "<pipe-entry>(cd ~/workspace/lkp-projects/lkp-core; umask 022; git
 macro pager d "<pipe-entry>(cd ~/workspace/dpdk; umask 022; git am --ignore-whitespace)"
 macro pager 0 "<pipe-entry>(cd ~/workspace/lkp-projects/0day-kernel-tests; umask 022; git am --ignore-whitespace)"
 macro pager b "<pipe-entry>(scp ~/Mail/.config.gz yexl@bee:~/linux/; ssh bee /home/yexl/workspace/scripts/repro-lkml-build.sh)"
+
+# Labels
+macro index,pager i "<enter-command>set editor=\"editlabel append\"\n\
+<edit><sync-mailbox><next-undeleted>\
+<enter-command>set editor=vim\n" "Append label"
+macro index,pager I "<enter-command>set editor=\"editlabel menu\"\n\
+<edit><sync-mailbox><next-undeleted>\
+<enter-command>set editor=vim\n" "Edit labels"
+macro index \Ci "<limit>~y " "Limit view to label"
+set index_format="%4C %Z %{%b %d} %-15.15L %?M?(#%03M)&(%4l)? %?y?(%.20Y) ?%s"
