@@ -21,3 +21,9 @@ git rm --cache: it could remove specified file from commit and without deleting 
 
 Ctrl-a + space would change the pane layout, keep typing it would change
 the layout back and forth.
+
+# For spacemacs
+
+enable magit commit arguments (like --signoff) by default by c-x c-s
+
+Refer to: https://emacs.stackexchange.com/questions/3893/how-can-i-make-verbose-flag-be-enabled-by-default-in-magit-commit-screen
