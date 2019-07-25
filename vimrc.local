@@ -51,6 +51,9 @@ autocmd BufNewFile *.sh exec setline(1, "#!/bin/sh")
 " not clear
 autocmd! bufwritepost .vimrc.local source ~/.vimrc.local
 
+" For commit message text line wrap
+autocmd Filetype gitcommit setlocal spell textwidth=72
+
 " For youcompleteme
 inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 autocmd BufEnter * if &filetype == "" | setlocal ft=text | endif
