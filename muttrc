@@ -60,7 +60,7 @@ set charset=utf8
 
 set edit_headers
 
-unset collapse_unread
+# unset collapse_unread
 unset mark_old
 
 # color
@@ -82,6 +82,8 @@ bind pager <down> next-line
 bind pager Q exit 
 bind index a    "create-alias"         # create an alias from a message sender
 bind pager a    "create-alias"            # create an alias from a message sender
+bind index -	collapse-thread
+bind index _	collapse-all
 
 # Sidebar Patch --------------------------------------
 #set sidebar_delim   = '  │'
