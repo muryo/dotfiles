@@ -80,8 +80,8 @@ color body brightyellow default "^@@.*"
 bind pager <up> previous-line #scroll inside the message rather than the index
 bind pager <down> next-line
 bind pager Q exit 
-bind index a    "create-alias"         # create an alias from a message sender
-bind pager a    "create-alias"            # create an alias from a message sender
+bind index a    create-alias		# create an alias from a message sender
+bind pager a    create-alias            # create an alias from a message sender
 bind index -	collapse-thread
 bind index _	collapse-all
 
