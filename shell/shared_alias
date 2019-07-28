@@ -47,6 +47,8 @@ alias gcs="git commit -s"
 alias gca="git commit --amend"
 alias glp="git log -p"
 alias glfg="git ls-files| grep -Ei"
+alias gar="git_add_reviewer"
+alias gaa="git_add_acker"
 
 alias sx='screen -x'
 
@@ -163,6 +165,12 @@ alias rm=trash
 alias r=trash
 alias rl='ls ~/.trash'
 alias ur=undel_file
+
+git_lines()
+{
+	git log --author="${1-Xiaolong}" --pretty=tformat: --numstat \
+	| gawk '{ add += $1; subs += $2; loc += $1 - $2  } END { printf "added lines: %s removed lines: %s total lines: %s\n", add, subs, loc  }'
+}
 
 undel_file()
 {
