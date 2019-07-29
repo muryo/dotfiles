@@ -55,9 +55,14 @@ autocmd! bufwritepost .vimrc.local source ~/.vimrc.local
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
 " For youcompleteme
-inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "<CR>"
+"inoremap <expr> <CR> pumvisible() ? "\<c-y>" : "<Plug>delimitMateCR"
 autocmd BufEnter * if &filetype == "" | setlocal ft=text | endif
 let g:ycm_filetype_blacklist = {'*': 0}
+let g:ycm_key_list_stop_completion = ['<CR>']
+let g:ycm_autoclose_preview_window_after_insertion=1
+let g:ycm_autoclose_preview_window_after_completion=1
 "let g:ycm_confirm_extra_conf=0 "关闭加载.ycm_extra_conf.py提示
 "let g:ycm_seed_identifiers_with_syntax=1
 "let g:ycm_complete_in_comments = 1
