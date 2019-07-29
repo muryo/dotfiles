@@ -16,6 +16,15 @@ function mcd() { mkdir "$@" && cd "$@"; }
 # cd && ls
 function cl() { cd $1 && ls -a --color=auto; }
 
+# show graphviz diagram
+function show_graphviz()
+{
+	[[ $1 ]] || return
+	diagram_name=${1%%.*}.png
+	dot -Tpng $1 -o $diagram_name
+	eog $diagram_name
+}
+
 # safe delete
 # function t() { mv $@ /tmp/; }
 
