@@ -96,5 +96,6 @@ endif
 set encoding=utf-8
 
 " Macro
-let @r="o\<CR>Reviewed-by: Xiaolong Ye <xiaolong.ye@intel.com>"
-let @a="o\<CR>Acked-by: Xiaolong Ye <xiaolong.ye@intel.com>"
+let @r="gGo\<CR>Reviewed-by: Xiaolong Ye <xiaolong.ye@intel.com>"
+let @a="gGo\<CR>Acked-by: Xiaolong Ye <xiaolong.ye@intel.com>"
+let @t="o\<CR>Thanks,\<CR>Xiaolong"
