@@ -330,6 +330,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   (setq package-check-signature nil)
+  (setq-default evil-search-module 'evil-search)
   )
 
 (defun dotspacemacs/user-config ()
