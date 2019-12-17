@@ -345,6 +345,7 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (semantic-mode 1)
   (global-semanticdb-minor-mode 1)
+  (global-auto-revert-mode t)
   (global-semantic-idle-scheduler-mode 1)
   (global-semantic-idle-summary-mode 1)
   (add-hook 'prog-mode-hook #'(lambda ()
