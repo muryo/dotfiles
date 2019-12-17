@@ -2,6 +2,7 @@
 
 export HISTSIZE=51200
 
+export EDITOR=vim
 export LESS=-MRiqscj5
 export PAGER=less
 #export GREP_OPTIONS="--binary-files=without-match"
@@ -13,7 +14,10 @@ export PAGER=less
 
 [ -z "$HOME" -o "$HOME" = "/" ] && export HOME="/home/$USER"
 
-export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/lib/git-core:/usr/sbin:/usr/bin:/sbin:/bin:/usr/X11R6/bin:"$PATH":/usr/lib/xscreensaver
+export PATH=$HOME/workspace/scripts:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/lib/git-core:/usr/sbin:/usr/bin:/sbin:/bin:/usr/X11R6/bin:"$PATH":/usr/lib/xscreensaver
+
+# add exe installed by `pip install` to PATH
+export PATH=$PATH:~/.local/bin
 
 . $HOME/bin/checkpath &>/dev/null
 
@@ -39,6 +43,10 @@ export http_proxy=http://child-prc.intel.com:913/
 export ftp_proxy=ftp://child-prc.intel.com:913/
 #export socks_proxy=socks://proxy-socks.fm.intel.com:1080/
 export https_proxy=https://child-prc.intel.com:913/
+# export http_proxy=http://proxy.ir.intel.com:911
+# export ftp_proxy=ftp://proxy.ir.intel.com:911/
+# #export socks_proxy=socks://proxy-socks.fm.intel.com:1080/
+# export https_proxy=https://proxy.ir.intel.com:913/
 export TERM=xterm-256color
 export GOROOT=$HOME/go
 export GOPATH=$HOME/gopath
