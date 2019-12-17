@@ -222,6 +222,13 @@ function egg() {
         vim +/"${@: -1}" $(git grep -l $@)
 }
 
+
+#################################################
+#						#
+#	For dpdk maintenance			#
+#						#
+#################################################
+
 git_add_tag()
 {
 	if [[ $# != 4 ]]; then
@@ -233,6 +240,8 @@ git_add_tag()
 		    export git_tag='Reviewed-by'
 	elif [[ $1 = 'ack' ]]; then
 		    export git_tag='Acked-by'
+	elif [[ $1 = 'test' ]]; then
+		    export git_tag='Tested-by'
 	else
 		echo "format should be $0 <reivew|ack> <n> <name> <email>"
 		return -1
@@ -240,7 +249,7 @@ git_add_tag()
 
 	export tag_name=$3
 	export tag_email=$4
-	git rebase HEAD~$2 -x 'git commit --amend -m "$(git log --format=%B -n1)$(echo \\n$git_tag: $tag_name \<$reviewer_email\>)"'
+	git rebase HEAD~$2 -x 'git commit --amend -m "$(git log --format=%B -n1)$(echo \\n$git_tag: $tag_name \<$tag_email\>)"'
 }
 
 git_add_reviewer()
@@ -261,4 +270,26 @@ git_add_acker()
 	fi
 
 	git_add_tag 'ack' $@
+}
+
+git_add_tester()
+{
+	if [[ $# != 3 ]]; then
+	    echo "format should be $0 <n> <name> <email>"
+	    return -1
+	fi
+
+	git_add_tag 'test' $@
+}
+
+fetch_next_net()
+{
+	echo "fetch dpdk-next-net..."
+	git fetch dpdk-next-net
+}
+
+rebase_to_next_net()
+{
+	echo "rebase to dpdk-next-net..."
+	git rebase dpdk-next-net/master
 }
