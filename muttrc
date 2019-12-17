@@ -25,7 +25,7 @@ mailboxes = +kbuild-all-list
 mailboxes = +todo
 mailboxes = +JIRA
 mailboxes = +manager
-mailboxes = +MSR
+mailboxes = +status-reports
 mailboxes = +lkp-reports
 mailboxes = +bisect-reports
 mailboxes = +kbuild-test-robot
@@ -34,8 +34,10 @@ mailboxes = +linux-scalability
 mailboxes = +lkp-robot
 mailboxes = +syzkaller
 mailboxes = +dpdk
-mailboxes = +build-dpdk
+mailboxes = +dpdk-user
 mailboxes = +jenkins
+mailboxes = +skype
+mailboxes = +MSR
 
 set alias_file=~/.mutt/aliases
 set check_new=yes
@@ -131,21 +133,21 @@ macro index A \
     "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
     "mark all new as read"
 
-macro pager m "<pipe-entry>(cd ~/workspace/kernel/linux; umask 022; git am --ignore-whitespace)"
+macro pager m "<pipe-entry>(cd ~/workspace/linux; umask 022; git am --ignore-whitespace)"
 macro pager p "<pipe-entry>(cd ~/workspace/kernel/linux; umask 022; git apply)"
 #macro pager l "<pipe-entry>(cd ~/workspace/lkp-ml; umask 022; git am --ignore-whitespace)"
 macro pager l "<pipe-entry>(cd ~/workspace/lkp-projects/lkp-tests; umask 022; git am --ignore-whitespace)"
 macro pager c "<pipe-entry>(cd ~/workspace/lkp-projects/lkp-core; umask 022; git am --ignore-whitespace)"
-macro pager d "<pipe-entry>(cd ~/workspace/dpdk; umask 022; git am --ignore-whitespace)"
+macro pager d "<pipe-entry>(cd ~/workspace/dpdk; umask 022; git am)"
 macro pager 0 "<pipe-entry>(cd ~/workspace/lkp-projects/0day-kernel-tests; umask 022; git am --ignore-whitespace)"
 macro pager b "<pipe-entry>(scp ~/Mail/.config.gz yexl@bee:~/linux/; ssh bee /home/yexl/workspace/scripts/repro-lkml-build.sh)"
 
 # Labels
-macro index,pager i "<enter-command>set editor=\"editlabel append\"\n\
-<edit><sync-mailbox><next-undeleted>\
-<enter-command>set editor=vim\n" "Append label"
-macro index,pager I "<enter-command>set editor=\"editlabel menu\"\n\
-<edit><sync-mailbox><next-undeleted>\
-<enter-command>set editor=vim\n" "Edit labels"
-macro index \Ci "<limit>~y " "Limit view to label"
-set index_format="%4C %Z %{%b %d} %-15.15L %?M?(#%03M)&(%4l)? %?y?(%.20Y) ?%s"
+#macro index,pager x "<enter-command>set editor=\"editlabel append\"\n\
+#<edit><sync-mailbox><next-undeleted>\
+#<enter-command>set editor=vim\n" "Append label"
+#macro index,pager I "<enter-command>set editor=\"editlabel menu\"\n\
+#<edit><sync-mailbox><next-undeleted>\
+#<enter-command>set editor=vim\n" "Edit labels"
+#macro index \Ci "<limit>~y " "Limit view to label"
+#set index_format="%4C %Z %{%b %d} %-15.15L %?M?(#%03M)&(%4l)? %?y?(%.20Y) ?%s"
