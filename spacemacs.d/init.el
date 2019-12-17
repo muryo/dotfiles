@@ -365,6 +365,11 @@ you should place your code here."
   (setq-default indent-tabs-mode t)
   (setq-default default-tab-width 8)
   (setq c-default-style "linux")
+  ;; Workaround for issue that wrong indentation when entering newline in braces
+  ;; details refer to https://github.com/syl20bnr/spacemacs/issues/6520
+  (defun disable-aindent()
+    (clean-aindent-mode -1))
+  (add-hook 'c-mode-hook 'disable-aindent)
   (setq org-directory "~/notes/")
   (setq org-files (append (file-expand-wildcards (concat org-directory "*/*.org"))
                           (file-expand-wildcards (concat org-directory "*/*.org"))))
