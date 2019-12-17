@@ -3,16 +3,37 @@ let mapleader=";"
 
 set pastetoggle=<F2>
 
-let &t_SI .= "\<Esc>[?2004h"
-let &t_EI .= "\<Esc>[?2004l"
+"let &t_SI .= "\<Esc>[?2004h"
+"let &t_EI .= "\<Esc>[?2004l"
+"
+"inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+"
+"function! XTermPasteBegin()
+"  set pastetoggle=<Esc>[201~
+"  set paste
+"  return ""
+"endfunction
+function! WrapForTmux(s)
+  if !exists('$TMUX')
+    return a:s
+  endif
 
-inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+  let tmux_start = "\<Esc>Ptmux;"
+  let tmux_end = "\<Esc>\\"
+
+  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+endfunction
+
+let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+let &t_EI .= WrapForTmux("\<Esc>[?2004l")
 
 function! XTermPasteBegin()
   set pastetoggle=<Esc>[201~
   set paste
   return ""
 endfunction
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
 " wrap the line if it exceeds the screen width
 set wrap
@@ -103,4 +124,6 @@ set encoding=utf-8
 " Macro
 let @r="GGo\<CR>Reviewed-by: Xiaolong Ye <xiaolong.ye@intel.com>"
 let @a="GGo\<CR>Acked-by: Xiaolong Ye <xiaolong.ye@intel.com>"
+let @s="GGo\<CR>Series applied to dpdk-next-net-intel, Thanks."
+let @p="GGo\<CR>Applied to dpdk-next-net-intel, Thanks."
 let @t="o\<CR>Thanks,\<CR>Xiaolong"
