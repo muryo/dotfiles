@@ -364,6 +364,7 @@ you should place your code here."
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   (setq-default indent-tabs-mode t)
   (setq-default default-tab-width 8)
+  (setq c-default-style "linux")
   (setq org-directory "~/notes/")
   (setq org-files (append (file-expand-wildcards (concat org-directory "*/*.org"))
                           (file-expand-wildcards (concat org-directory "*/*.org"))))
