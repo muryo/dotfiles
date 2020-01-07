@@ -293,3 +293,11 @@ rebase_to_next_net()
 	echo "rebase to dpdk-next-net..."
 	git rebase dpdk-next-net/master
 }
+
+zsh_history_fix()
+{
+	mv ~/.zsh_history ~/.zsh_history_bad
+	strings ~/.zsh_history_bad > ~/.zsh_history
+	fc -R ~/.zsh_history
+	rm ~/.zsh_history_bad
+}
