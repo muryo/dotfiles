@@ -1,0 +1,23 @@
+[core]
+	editor = vim
+[https]
+	proxy = https:xxxx.com:913
+[http]
+	proxy = http://xxxx.com:913
+[user]
+	name = Xiaolong Ye
+	email = 
+[sendemail]
+        smtpserver = smtp.intel.com
+        from = Xiaolong Ye <xiaolong.ye@intel.com>
+        chainreplyto = false
+        smtpserverport = 25
+        envelope-sender = xiaolong.ye@intel.com
+        confirm = always
+[alias]
+	fixline = log -1 --abbrev=12 --format='Fixes: %h (\"%s\")%nCc: %ae'
+[pw]
+	server = http://patches.dpdk.org/api/1.0/
+	project = dpdk
+	token = 630de1ae42a0382e54eae054233c6831e23b0573
+	username = yexl
