@@ -2,7 +2,7 @@ set editor="vim +':set textwidth=0' +':set wrapmargin=0' +':set wrap'"
 set sendmail="/usr/bin/msmtp"
 set use_from=yes
 set realname="Ye Xiaolong"
-set from=xiaolong.ye@intel.com
+set from=muryo.ye@outlook.com
 set envelope_from=yes
 
 set mbox_type=Maildir
@@ -14,30 +14,7 @@ set header_cache=+.hcache
 set postponed=+postponed
 
 mailboxes = +inbox
-mailboxes = +audio
-mailboxes = +lkp-patches
-mailboxes = +lkp-regression
-mailboxes = +sent
-mailboxes = +git-maillist
-#mailboxes = +openvswitch-dev
-mailboxes = +lkp01-list
-mailboxes = +kbuild-all-list
-mailboxes = +todo
-mailboxes = +JIRA
-mailboxes = +manager
-mailboxes = +status-reports
-mailboxes = +lkp-reports
-mailboxes = +bisect-reports
-mailboxes = +kbuild-test-robot
-mailboxes = +linux-audio-intel
-mailboxes = +linux-scalability
-mailboxes = +lkp-robot
-mailboxes = +syzkaller
 mailboxes = +dpdk
-mailboxes = +dpdk-user
-mailboxes = +jenkins
-mailboxes = +skype
-mailboxes = +MSR
 
 set alias_file=~/.mutt/aliases
 set check_new=yes
