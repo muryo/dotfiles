@@ -154,7 +154,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(monokai
+   ;; dotspacemacs-themes '(solarized
+   dotspacemacs-themes '(lush
                          spacemacs-dark
                          spacemacs-light)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
@@ -329,6 +330,12 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  (setq-default
+   configuration-layer--elpa-archives
+   '(("melpa-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+    ("gnu-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+    ("org-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/"))
+  )
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   (setq package-check-signature nil)
   (setq require-final-newline t)
@@ -349,13 +356,14 @@ you should place your code here."
   (global-auto-revert-mode t)
   (global-semantic-idle-scheduler-mode 1)
   (global-semantic-idle-summary-mode 1)
-  (add-hook 'prog-mode-hook #'(lambda ()
-                                (dtrt-indent-mode)
-                                (dtrt-indent-adapt)))
+  ;; (add-hook 'prog-mode-hook #'(lambda ()
+  ;;                               (dtrt-indent-mode)
+  ;;                               (dtrt-indent-adapt)))
   (define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
   (define-key evil-normal-state-map (kbd "M-.") 'helm-gtags-dwim)
   (define-key evil-normal-state-map (kbd "M-,") 'helm-gtags-pop-stack)
   (setq python-shell-interpreter "python3")
+  (setq create-lockfiles nil)
   (spaceline-define-segment buffer-id
     (if (buffer-file-name)
         (abbreviate-file-name (buffer-file-name))
@@ -363,8 +371,10 @@ you should place your code here."
   (diff-hl-flydiff-mode '(:global t))
   (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   (setq-default indent-tabs-mode t)
-  (setq-default default-tab-width 8)
-  (setq c-default-style "linux")
+  (setq-default default-tab-width 4)
+  ;; (setq c-default-style "linux")
+  (setq c-default-style "k&r")
+  (setq c-basic-offset 4)
   ;; Workaround for issue that wrong indentation when entering newline in braces
   ;; details refer to https://github.com/syl20bnr/spacemacs/issues/6520
   (defun disable-aindent()
@@ -383,13 +393,15 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#080808" "#d70000" "#67b11d" "#875f00" "#268bd2" "#af00df" "#00ffff" "#b2b2b2"])
  '(magit-commit-arguments (quote ("--signoff")))
  '(package-selected-packages
    (quote
-    (org-category-capture powerline pcre2el alert log4e gntp org-plus-contrib markdown-mode magit-popup hydra lv dash-functional parent-mode projectile request xcscope haml-mode gitignore-mode flyspell-correct pos-tip flycheck pkg-info epl flx highlight magit transient smartparens iedit anzu evil goto-chg go-mode inf-ruby bind-map bind-key yasnippet packed anaconda-mode pythonic avy auto-complete company f git-commit with-editor helm helm-core popup async dash s graphviz-dot-mode imenu-list yapfify yaml-mode xterm-color ws-butler winum which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit stickyfunc-enhance srefactor spaceline smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe restart-emacs rbenv ranger rake rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements persp-mode paradox orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file neotree multi-term move-text monokai-theme mmm-mode minitest markdown-toc magit-gitflow macrostep lorem-ipsum live-py-mode linum-relative link-hint less-css-mode indent-guide hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gtags helm-gitignore helm-flx helm-descbinds helm-css-scss helm-cscope helm-company helm-c-yasnippet helm-ag google-translate golden-ratio go-guru go-eldoc gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md ggtags fuzzy flyspell-correct-helm flycheck-pos-tip flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dumb-jump dtrt-indent disaster diminish diff-hl define-word cython-mode company-web company-statistics company-go company-c-headers company-anaconda column-enforce-mode cmake-mode clean-aindent-mode clang-format chruby bundler auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+    (molikai-theme solarized-theme molaikai-theme fringe-helper git-gutter+ undo-tree web-completion-data git-gutter org-category-capture powerline pcre2el alert log4e gntp org-plus-contrib markdown-mode magit-popup hydra lv dash-functional parent-mode projectile request xcscope haml-mode gitignore-mode flyspell-correct pos-tip flycheck pkg-info epl flx highlight magit transient smartparens iedit anzu evil goto-chg go-mode inf-ruby bind-map bind-key yasnippet packed anaconda-mode pythonic avy auto-complete company f git-commit with-editor helm helm-core popup async dash s graphviz-dot-mode imenu-list yapfify yaml-mode xterm-color ws-butler winum which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit stickyfunc-enhance srefactor spaceline smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe restart-emacs rbenv ranger rake rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements persp-mode paradox orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file neotree multi-term move-text monokai-theme mmm-mode minitest markdown-toc magit-gitflow macrostep lorem-ipsum live-py-mode linum-relative link-hint less-css-mode indent-guide hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gtags helm-gitignore helm-flx helm-descbinds helm-css-scss helm-cscope helm-company helm-c-yasnippet helm-ag google-translate golden-ratio go-guru go-eldoc gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md ggtags fuzzy flyspell-correct-helm flycheck-pos-tip flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dumb-jump dtrt-indent disaster diminish diff-hl define-word cython-mode company-web company-statistics company-go company-c-headers company-anaconda column-enforce-mode cmake-mode clean-aindent-mode clang-format chruby bundler auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:background nil)))))
