@@ -373,7 +373,7 @@ you should place your code here."
       (powerline-buffer-id)))
   ;; (diff-hl-flydiff-mode '(:global t))
   ;; (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
-  (setq-default indent-tabs-mode t)
+  (setq-default indent-tabs-mode nil)
   (setq-default default-tab-width 4)
   ;; (setq c-default-style "linux")
   (setq c-default-style "k&r")
