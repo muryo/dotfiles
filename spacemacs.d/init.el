@@ -364,6 +364,7 @@ you should place your code here."
   (define-key evil-normal-state-map (kbd "M-,") 'helm-gtags-pop-stack)
   (setq python-shell-interpreter "python3")
   (setq create-lockfiles nil)
+  (setq xterm-query-timeout nil)
   (spaceline-define-segment buffer-id
     (if (buffer-file-name)
         (abbreviate-file-name (buffer-file-name))
