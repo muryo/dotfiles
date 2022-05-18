@@ -385,6 +385,8 @@ you should place your code here."
   (setq org-files (append (file-expand-wildcards (concat org-directory "*/*.org"))
                           (file-expand-wildcards (concat org-directory "*/*.org"))))
   (setq org-agenda-files (append (file-expand-wildcards (concat org-directory "dates/*.org"))))
+  (evil-leader/set-key
+	"q q" 'spacemacs/frame-killer)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
