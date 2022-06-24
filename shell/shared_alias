@@ -52,6 +52,7 @@ alias gaa="git_add_acker"
 alias gat="git_add_tester"
 alias grh="git reset --hard"
 alias gab="git am --abort"
+alias tig='GIT_EDITOR="emacsclient -c" tig'
 
 alias sx='screen -x'
 
