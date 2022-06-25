@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+	 lua
      graphviz
      (imenu-list :variables
                  imenu-list-position 'left)
@@ -58,10 +59,10 @@ values."
      (git :variables
 	  git-commit-fill-column 75
 	  git-commit-summary-max-length 60)
-     (version-control :variables
-                      version-control-diff-tool 'diff-hl
-                      version-control-diff-side 'left
-                      version-control-global-margin 't)
+     ;; (version-control :variables
+     ;;                  version-control-diff-tool 'diff-hl
+     ;;                  version-control-diff-side 'left
+     ;;                  version-control-global-margin 't)
      org
      (shell :variables
             shell-default-height 30
@@ -154,10 +155,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   ;; dotspacemacs-themes '(solarized
    dotspacemacs-themes '(lush
-                         spacemacs-dark
-                         spacemacs-light)
+						 monokai)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
@@ -321,6 +320,7 @@ values."
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
    dotspacemacs-whitespace-cleanup nil
+   dotspacemacs-persistent-server t
    ))
 
 (defun dotspacemacs/user-init ()
@@ -336,7 +336,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
     ("gnu-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
     ("org-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/org/"))
   )
-  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+  ;; (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   (setq package-check-signature nil)
   (setq require-final-newline t)
   (setq-default evil-search-module 'evil-search)
@@ -369,8 +369,8 @@ you should place your code here."
     (if (buffer-file-name)
         (abbreviate-file-name (buffer-file-name))
       (powerline-buffer-id)))
-  (diff-hl-flydiff-mode '(:global t))
-  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+  ;; (diff-hl-flydiff-mode '(:global t))
+  ;; (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
   (setq-default indent-tabs-mode t)
   (setq-default default-tab-width 4)
   ;; (setq c-default-style "linux")
@@ -385,6 +385,9 @@ you should place your code here."
   (setq org-files (append (file-expand-wildcards (concat org-directory "*/*.org"))
                           (file-expand-wildcards (concat org-directory "*/*.org"))))
   (setq org-agenda-files (append (file-expand-wildcards (concat org-directory "dates/*.org"))))
+  (with-eval-after-load 'helm
+		(setq helm-display-function 'helm-default-display-buffer))
+  (require 'helm-bookmark)
   (evil-leader/set-key
 	"q q" 'spacemacs/frame-killer)
   )
@@ -401,10 +404,10 @@ you should place your code here."
  '(magit-commit-arguments (quote ("--signoff")))
  '(package-selected-packages
    (quote
-    (molikai-theme solarized-theme molaikai-theme fringe-helper git-gutter+ undo-tree web-completion-data git-gutter org-category-capture powerline pcre2el alert log4e gntp org-plus-contrib markdown-mode magit-popup hydra lv dash-functional parent-mode projectile request xcscope haml-mode gitignore-mode flyspell-correct pos-tip flycheck pkg-info epl flx highlight magit transient smartparens iedit anzu evil goto-chg go-mode inf-ruby bind-map bind-key yasnippet packed anaconda-mode pythonic avy auto-complete company f git-commit with-editor helm helm-core popup async dash s graphviz-dot-mode imenu-list yapfify yaml-mode xterm-color ws-butler winum which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit stickyfunc-enhance srefactor spaceline smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe restart-emacs rbenv ranger rake rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements persp-mode paradox orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file neotree multi-term move-text monokai-theme mmm-mode minitest markdown-toc magit-gitflow macrostep lorem-ipsum live-py-mode linum-relative link-hint less-css-mode indent-guide hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gtags helm-gitignore helm-flx helm-descbinds helm-css-scss helm-cscope helm-company helm-c-yasnippet helm-ag google-translate golden-ratio go-guru go-eldoc gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md ggtags fuzzy flyspell-correct-helm flycheck-pos-tip flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dumb-jump dtrt-indent disaster diminish diff-hl define-word cython-mode company-web company-statistics company-go company-c-headers company-anaconda column-enforce-mode cmake-mode clean-aindent-mode clang-format chruby bundler auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
+    (lua-mode evil-magit magit-gitflow magit-popup magit magit-section transient compat nadvice evil-collection package-safe-delete molikai-theme solarized-theme molaikai-theme fringe-helper git-gutter+ undo-tree web-completion-data git-gutter org-category-capture powerline pcre2el alert log4e gntp org-plus-contrib markdown-mode hydra lv dash-functional parent-mode projectile request xcscope haml-mode gitignore-mode flyspell-correct pos-tip flycheck pkg-info epl flx highlight smartparens iedit anzu evil goto-chg go-mode inf-ruby bind-key yasnippet packed anaconda-mode pythonic avy auto-complete company f git-commit with-editor helm helm-core popup async dash s graphviz-dot-mode imenu-list yapfify yaml-mode xterm-color ws-butler winum which-key web-mode volatile-highlights vi-tilde-fringe uuidgen use-package toc-org tagedit stickyfunc-enhance srefactor spaceline smeargle slim-mode shell-pop scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe restart-emacs rbenv ranger rake rainbow-delimiters pyvenv pytest pyenv-mode py-isort pug-mode popwin pip-requirements persp-mode paradox orgit org-projectile org-present org-pomodoro org-mime org-download org-bullets open-junk-file neotree multi-term move-text monokai-theme mmm-mode minitest markdown-toc macrostep lorem-ipsum live-py-mode linum-relative link-hint less-css-mode indent-guide hy-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers highlight-indentation helm-themes helm-swoop helm-pydoc helm-projectile helm-mode-manager helm-make helm-gtags helm-gitignore helm-flx helm-descbinds helm-css-scss helm-cscope helm-company helm-c-yasnippet helm-ag google-translate golden-ratio go-guru go-eldoc gnuplot gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe git-gutter-fringe+ gh-md ggtags fuzzy flyspell-correct-helm flycheck-pos-tip flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu eshell-z eshell-prompt-extras esh-help emmet-mode elisp-slime-nav dumb-jump dtrt-indent disaster diminish diff-hl define-word cython-mode company-web company-statistics company-go company-c-headers company-anaconda column-enforce-mode cmake-mode clean-aindent-mode clang-format chruby bundler auto-yasnippet auto-highlight-symbol auto-dictionary auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line ac-ispell))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:background nil)))))
+ )
