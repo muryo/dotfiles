@@ -27,3 +27,8 @@ the layout back and forth.
 enable magit commit arguments (like --signoff) by default by c-x c-s
 
 Refer to: https://emacs.stackexchange.com/questions/3893/how-can-i-make-verbose-flag-be-enabled-by-default-in-magit-commit-screen
+
+when try to submit a commit in magit by type c appeared 
+"wrong-type-argument transient-suffix [eieio-class-tag--transient-switch 1 nil nil nil nil nil nil nil nil "
+
+> remove .emacs.d/elpha/transient/transient.elc solves this issue.
