@@ -1,0 +1,4 @@
+  bind generic 1 move-first-line
+  bind generic 2 move-last-line
+  bind main 1 move-first-line
+  bind main 2 move-last-line

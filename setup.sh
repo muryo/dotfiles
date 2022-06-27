@@ -36,6 +36,9 @@ ln -sf $DOTFILE_PATH/muttrc ~/.mutt/muttrc
 
 # create symbols for tmux
 ln -sf $DOTFILE_PATH/tmux.conf ~/.tmux.conf
+
+# create symbols for tig
+ln -sf $DOTFILE_PATH/tigrc ~/.tigrc
 echo "\nDone"
 
 # for common shell
